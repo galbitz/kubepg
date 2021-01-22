@@ -18,7 +18,7 @@ Vagrant.configure('2') do |config|
       node.vm.box = 'generic/ubuntu2004'
       node.vm.box_check_update = false
       node.vm.hostname = "kmaster#{i}.example.com"
-      node.vm.network 'public_network', ip: "192.168.1.20#{i}"
+      node.vm.network 'public_network', ip: "192.168.1.#{i+200}"
       node.vm.synced_folder('.', '/vagrant', type: 'nfs', disabled: true)
       node.vm.provider :vmware_esxi do |esxi|
         esxi.esxi_hostname = esxi_hostname  
@@ -39,7 +39,7 @@ Vagrant.configure('2') do |config|
       node.vm.box = 'generic/ubuntu2004'
       node.vm.box_check_update = false
       node.vm.hostname = "kworker#{i}.example.com"
-      node.vm.network 'public_network', ip: "192.168.1.21#{i}"
+      node.vm.network 'public_network', ip: "192.168.1.#{i+210}"
       node.vm.synced_folder('.', '/vagrant', type: 'nfs', disabled: true)
       node.vm.provider :vmware_esxi do |esxi|
         esxi.esxi_hostname = esxi_hostname  
